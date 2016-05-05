@@ -116,7 +116,7 @@ class Controller extends Package
             
             //Set whether select attributes allow additional values
             if ($type == 'select' && $selectAllowOtherValues == true) {
-                $attr->setAllowOtherValues();
+                $attr->getController()->setAllowOtherValues();
             }
         }
         
