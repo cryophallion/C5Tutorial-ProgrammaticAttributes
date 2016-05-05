@@ -111,7 +111,8 @@ class Controller extends Package
             $att_type = AttributeType::getByHandle($type);
             
             //create the attribute then add it to the set
-            $attr = $categoryKeyObject::add($att_type, $info, $pkg)->setAttributeSet($attibuteSetObject);
+            $attr = $categoryKeyObject::add($att_type, $info, $pkg);
+            $attr->setAttributeSet($attibuteSetObject);
             
             //Set whether select attributes allow additional values
             if ($type == 'select' && $selectAllowOtherValues == true) {
