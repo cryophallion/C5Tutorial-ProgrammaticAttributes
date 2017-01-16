@@ -89,14 +89,14 @@ class Controller extends Package
      * @param string $name Name
      * @param string $type Attribute Type
      * @param object $categoryKeyObject Attribute Key Category Class (ie, CollectionKey, etc class object)
-     * @param object $attibuteSetObject Attribute Set Object
+     * @param object $attributeSetObject Attribute Set Object
      * @param object $pkg Package Object
      * @param boolean $selectAllowOtherValues Sets whether additional values are allowed for select attributes
      * @return object Attribute Object
      */
-    protected function addAttribute($handle, $name, $type, $categoryKeyObject, $attibuteSetObject, $pkg, $selectAllowOtherValues = true)
+    protected function addAttribute($handle, $name, $type, $categoryKeyObject, $attributeSetObject, $pkg, $selectAllowOtherValues = true)
     {
-        //get attribut if it's already created
+        //get attribute if it's already created
         $attr = $categoryKeyObject::getByHandle($handle);
         if (!is_object($attr)) {
             
@@ -112,7 +112,7 @@ class Controller extends Package
             
             //create the attribute then add it to the set
             $attr = $categoryKeyObject::add($att_type, $info, $pkg);
-            $attr->setAttributeSet($attibuteSetObject);
+            $attr->setAttributeSet($attributeSetObject);
             
             //Set whether select attributes allow additional values
             if ($type == 'select' && $selectAllowOtherValues == true) {
